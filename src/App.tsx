@@ -12,15 +12,17 @@ function App() {
     FetchApi().then((response) => {
       setTodosData(response);
       setIsLoading(false);
-      console.log("Response", response);
     });
   }, []);
 
   return (
     <div className='App'>
-      <ul>
+      <h1>Liste des chose a faire : </h1>
+      <ul className='list-group '>
         {isLoading ? (
-          <p>Chargement..</p>
+          <div className='spinner-border' role='status'>
+            <span className='visually-hidden'>Loading...</span>
+          </div>
         ) : (
           todosData.map((todo) => {
             return <Todo key={todo.id} todo={todo} />;

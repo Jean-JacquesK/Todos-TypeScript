@@ -8,8 +8,8 @@ type TodoProps = {
 };
 function Todo({ todo }: TodoProps) {
   return (
-    <li>
-      <h1>{todo.title}</h1>
+    <li className='list-group-item'>
+      <p>{todo.title}</p>
     </li>
   );
 }
