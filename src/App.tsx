@@ -16,27 +16,19 @@ function App() {
     });
   }, []);
 
-  console.log("ICI", todosData);
-
   return (
     <div className='App'>
       <ul>
-        {isLoading
-          ? "Chargement.."
-          : todosData.map((todo: ResponseData) => {
-              <li key={todo.id}>
-                <Todo todo={todo} />
-              </li>;
-            })}
+        {isLoading ? (
+          <p>Chargement..</p>
+        ) : (
+          todosData.map((todo) => {
+            return <Todo key={todo.id} todo={todo} />;
+          })
+        )}
       </ul>
     </div>
   );
 }
 
 export default App;
-
-// {
-//   completed: false,
-//   title: "",
-//   userId: 0,
-// }
